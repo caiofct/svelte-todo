@@ -1,12 +1,9 @@
 <script>
 	import Todo from './Todo.svelte'
-
-	let name = 'World'
 </script>
 
 <main>
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+	<h1>Svelte Todo App</h1>
 	<Todo/>
 </main>
 

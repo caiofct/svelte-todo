@@ -1,8 +1,12 @@
 <script>
-  let todos = ['Task 1', 'Task 2', 'Task 3']
+  let todos = []
+  let taskInput = ""
 
-  function addTask() {
-    todos = [...todos, 'New Task']
+  function addTask(event) {
+    if (!event.key || event.key === 'Enter') {
+      todos = [...todos, taskInput]
+      taskInput = ""
+    }
   }
 </script>
 
@@ -13,11 +17,22 @@
     {/each}
   </ul>
 
-  <button on:click={addTask}>Add Task</button>
+  <div class="flex">
+    <label>
+      New Task:
+      <input bind:value="{taskInput}" on:keydown={addTask} />
+    </label>
+    <button on:click={addTask}>Add Task</button>
+  </div>
 </main>
 
 <style>
   ul {
     list-style-type: none;
+  }
+
+  .flex {
+    display: flex;
+    justify-content: center;
   }
 </style>
